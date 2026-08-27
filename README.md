@@ -15,8 +15,9 @@ escura, dourado, acento). `logo.svg` é o `icon.svg` do repositório do jogo.
 
 ## Publicar (GitHub Pages, recomendado)
 
-1. Repo GitHub (privado não serve para Pages gratuito de organização; público
-   ou Pages de conta pessoal): subir estes arquivos na branch `main`.
+1. Repo: `github.com/adventure-smash-game/adventure-smash-site` (público —
+   Pages gratuito exige público; organização própria para o usuário pessoal
+   não aparecer).
 2. Settings → Pages → Deploy from branch → `main` `/ (root)`.
 3. O arquivo `CNAME` já aponta `adventuresmash.online`. Na Hostinger, o DNS
    do apex vai para os IPs do GitHub Pages (185.199.108-111.153) e `www` em
