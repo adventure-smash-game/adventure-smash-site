@@ -1,0 +1,134 @@
+/* Adventure Smash — site institucional (adventuresmash.online).
+   Uma folha só, sem dependência externa; a identidade segue o jogo:
+   base escura #1b2030, dourado #f5d442, acento #ff5f45. */
+:root {
+  --ink: #1b2030;
+  --surface: #232940;
+  --card: #2b3352;
+  --text: #eef0f8;
+  --muted: #aab1cc;
+  --gold: #f5d442;
+  --ember: #ff5f45;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font: 17px/1.65 system-ui, "Segoe UI", Roboto, sans-serif;
+}
+header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--gold);
+  padding: 1.1rem 1.4rem;
+}
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+header .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  flex: none;
+}
+header a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+header nav {
+  max-width: 46rem;
+  margin: 0.6rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.1rem;
+  font-size: 0.86rem;
+}
+header nav a {
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: inherit;
+}
+header nav a:hover, header a:hover { color: var(--gold); }
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 4rem;
+}
+h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 0.4rem; }
+h2 { font-size: 1.15rem; margin: 2rem 0 0.5rem; color: var(--gold); }
+p.lead { color: var(--muted); margin-top: 0; }
+a { color: var(--gold); }
+ul { padding-left: 1.2rem; }
+li { margin: 0.35rem 0; }
+.card {
+  background: var(--card);
+  border: 1px solid #3a4470;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+.card b { color: var(--gold); }
+.steps { counter-reset: p; padding-left: 0; list-style: none; }
+.steps li {
+  counter-increment: p;
+  margin: 0.6rem 0;
+  padding-left: 2.2rem;
+  position: relative;
+}
+.steps li::before {
+  content: counter(p);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stamp {
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid #3a4470;
+  margin-top: 2.5rem;
+  padding-top: 0.8rem;
+}
+footer {
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+}
+footer a { color: var(--muted); }
+code {
+  background: var(--surface);
+  border-radius: 5px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.92em;
+}
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.3rem;
+  margin-top: 0.6rem;
+}
+.btn:hover { filter: brightness(1.07); }
