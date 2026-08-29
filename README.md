@@ -27,6 +27,17 @@ escura, dourado, acento). `logo.svg` é o `icon.svg` do repositório do jogo.
 Alternativa: hospedagem estática da própria Hostinger (subir os arquivos por
 FTP/painel; garantir que `/privacidade` sirva `privacidade.html`).
 
+## APK de teste (`apk.html` + `apk.json`)
+
+Gerados por `adventure-smash/tools/publish_apk.ps1` (chamado no fim de todo
+`tools/deploy_server.ps1` verde): o script commita e pusha só esses dois
+arquivos — não os edite à mão (mudou o template? é no `.ps1`; `-PageOnly`
+regenera a página do JSON). O APK **não** fica neste repo nem em release
+pública: mora no VPS atrás de usuário/senha (`APK_USER`/`APK_PASSWORD` do
+`.env` de lá, passados ao time por canal privado), e a página só aponta
+para `https://<api>/apk/<arquivo>`. `noindex`, fora do menu. Segurança:
+`server/docs/SECURITY.md` D18.
+
 ## Regras
 
 - A data no topo de `privacidade.html` é a MESMA do `Consent.VERSION` do app
