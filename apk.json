@@ -3,6 +3,16 @@
   "dev": [
     {
       "version": "0.7.1",
+      "build": "28adca3",
+      "url": "https://srv1898920.hstgr.cloud:8443/apk/AdventureSmash-0.7.1-dev-28adca3-20260829-2327.apk",
+      "file": "AdventureSmash-0.7.1-dev-28adca3-20260829-2327.apk",
+      "size_mb": 65.5,
+      "sha256": "872584f47f25322d6e00a6e5c5681cfb8dc1141c6e0ec9925748d425a29b797a",
+      "built_at": "2026-08-29T23:27:48Z",
+      "dev": "Juliano"
+    },
+    {
+      "version": "0.7.1",
       "build": "7034133",
       "url": "https://srv1898920.hstgr.cloud:8443/apk/AdventureSmash-0.7.1-dev-7034133-20260829-1150.apk",
       "file": "AdventureSmash-0.7.1-dev-7034133-20260829-1150.apk",
