@@ -1,0 +1,15 @@
+{
+  "beta": [],
+  "dev": [
+    {
+      "version": "0.7.1",
+      "build": "4c47827-dirty",
+      "url": "https://srv1898920.hstgr.cloud:8443/apk/AdventureSmash-0.7.1-dev-4c47827-dirty-20260829-0845.apk",
+      "file": "AdventureSmash-0.7.1-dev-4c47827-dirty-20260829-0845.apk",
+      "size_mb": 65.1,
+      "sha256": "d4eee51c461ac1ebf6fe4e66223113376690e9a274b08110055c6eca07424a4c",
+      "built_at": "2026-08-29T08:45:10Z",
+      "dev": "Juliano"
+    }
+  ]
+}
