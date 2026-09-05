@@ -30,7 +30,7 @@ python tools/build_site.py           # escreve as 5 páginas nas 3 línguas
 python tools/build_site.py --check   # falha se o disco divergir do molde
 ```
 
-Saída: português na raiz (`/privacidade.html`), inglês em `/en/`, espanhol em
+Saída: português na raiz (adventuresmash.online/privacidade.html), inglês em `/en/`, espanhol em
 `/es/`. **O nome do arquivo é o mesmo nas três**: quem carrega a língua é a
 pasta, então todo link relativo do conteúdo funciona sem tradução e as URLs
 que o app publica (`project.godot [adventure] links/*`) não mudam.

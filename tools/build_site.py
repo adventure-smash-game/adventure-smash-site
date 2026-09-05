@@ -37,6 +37,11 @@ FORA daqui, de proposito: apk.html e apk.json, gerados por
 adventure-smash/tools/publish_apk.ps1 a cada deploy verde. Mexer neles aqui
 brigaria com aquele script na proxima publicacao.
 
+`--check` tambem cobra que toda pagina gerada esteja RASTREADA no git: em
+2026-09-05 um commit levou a fonte e as paginas da raiz mas esqueceu /en/ e
+/es/ no `git add`, e o site ficou com dez links 404 ate o commit seguinte.
+Fora de um repositorio git a cobranca e pulada.
+
 Sem dependencia externa. Exit 0 = ok, 1 = achados, 2 = uso.
 
 Uso (da raiz do repositorio do site):
@@ -49,6 +54,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import subprocess
 import sys
 from pathlib import Path
 
@@ -161,10 +167,24 @@ def render(template: str, chrome: dict, locale: str, folder: str, lang_tag: str,
     return out
 
 
+def tracked_files(root: Path):
+    """Caminhos rastreados pelo git, ou None fora de um repositorio."""
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(root), "ls-files", "-z"],
+            capture_output=True,
+            check=True,
+        ).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return {p.decode("utf-8") for p in out.split(b"\0") if p}
+
+
 def build(root: Path, check_only: bool) -> list:
     findings = []
     template = (root / "templates" / "page.html").read_text(encoding="utf-8")
     chrome = read_csv(root / "i18n" / "site.csv")
+    tracked = tracked_files(root) if check_only else None
 
     for key in [k for _, k, _ in PAGES] + [k for _, k in NAV] + ["site.langs.label"]:
         for locale, _, _, _ in LOCALES:
@@ -187,6 +207,8 @@ def build(root: Path, check_only: bool) -> list:
                 current = target.read_text(encoding="utf-8") if target.is_file() else ""
                 if current != html:
                     findings.append("desatualizado: %s (rode tools/build_site.py)" % rel)
+                elif tracked is not None and rel not in tracked:
+                    findings.append("gerado mas fora do git: %s (git add -- %s)" % (rel, rel))
                 continue
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(html, encoding="utf-8", newline="\n")
