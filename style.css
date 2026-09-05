@@ -115,6 +115,13 @@ footer {
   font-size: 0.85rem;
 }
 footer a { color: var(--muted); }
+/* Seletor de idioma do rodape: cada lingua se escreve na propria lingua, e a
+   que esta aberta sai em negrito, sem link (tools/build_site.py). */
+.langs {
+  margin-top: 0.7rem;
+  opacity: 0.8;
+}
+.langs b { color: var(--gold); }
 code {
   background: var(--surface);
   border-radius: 5px;
