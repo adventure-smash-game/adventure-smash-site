@@ -1,53 +1,19 @@
 #!/usr/bin/env python3
 """Monta o site nas tres linguas do jogo (pt-BR, ingles, espanhol).
 
-O jogo fala tres linguas desde 2026-09-02 (adventure-smash/docs/i18n.md); o
-site era o unico lugar onde o jogador so encontrava portugues — inclusive a
-politica de privacidade que a Play exige e que a app abre de dentro do jogo.
+Entradas: templates/page.html (esqueleto), i18n/site.csv (cromo: menu, titulo da aba,
+descricao; keys,pt_BR,en,es, coluna achada pelo nome) e content/<lingua>/<pag>.html
+(miolo de <main>). Saida: /<pag>.html em pt-BR, /en/ e /es/ com o mesmo nome de arquivo,
+<html lang>, canonical, hreflang e seletor com endonimos. O porque esta no README.md.
+apk.html e apk.json ficam fora (adventure-smash/tools/publish_apk.ps1).
 
-Como funciona, em uma frase: **o cromo vem do CSV, a prosa vem do HTML**.
-
-  templates/page.html        o esqueleto (cabecalho, nav, rodape, seletor)
-  i18n/site.csv              o que se repete em toda pagina: rotulo do menu,
-                             titulo da aba, descricao. Formato keys,pt_BR,en,es
-                             — o mesmo de assets/i18n no jogo, e a coluna e
-                             achada pelo NOME, nunca pela posicao.
-  content/<lingua>/<pag>.html   o miolo de <main>, um arquivo por lingua
-
-Por que a prosa NAO vai no CSV: politica de privacidade e termos sao textos
-longos, com lista e link no meio. Numa celula de CSV viram uma linha unica de
-3 mil caracteres, impossivel de revisar em diff — e revisar texto legal linha
-a linha e exatamente o que se quer poder fazer. No CSV fica o que repete e
-por isso precisa ser consistente; no HTML fica o que se le.
-
-Saida (o nome do arquivo e o MESMO nas tres linguas — quem carrega a lingua e
-a PASTA, entao todo link relativo do conteudo funciona sem traducao, e as
-URLs que o app ja publica em project.godot nao mudam):
-
-  /index.html  /privacidade.html  ...     pt-BR (raiz, sem prefixo)
-  /en/index.html  /en/privacidade.html    ingles
-  /es/index.html  /es/privacidade.html    espanhol
-
-Cada pagina sai com <html lang>, canonical, hreflang cruzado das tres mais
-x-default (aponta para o portugues) e o seletor de idioma no rodape, com cada
-lingua escrita NA PROPRIA LINGUA (endonimo nao se traduz, como em
-src/app/i18n.gd).
-
-FORA daqui, de proposito: apk.html e apk.json, gerados por
-adventure-smash/tools/publish_apk.ps1 a cada deploy verde. Mexer neles aqui
-brigaria com aquele script na proxima publicacao.
-
-`--check` tambem cobra que toda pagina gerada esteja RASTREADA no git: em
-2026-09-05 um commit levou a fonte e as paginas da raiz mas esqueceu /en/ e
-/es/ no `git add`, e o site ficou com dez links 404 ate o commit seguinte.
-Fora de um repositorio git a cobranca e pulada.
-
-Sem dependencia externa. Exit 0 = ok, 1 = achados, 2 = uso.
+--check: exit 1 se o disco divergir do molde ou se pagina gerada nao estiver rastreada no
+git (fora de repositorio git, pula essa parte). Sem CI no site: quem cobra e a skill commits.
+Exit 0 = ok, 1 = achados, 2 = uso. Sem dependencia externa.
 
 Uso (da raiz do repositorio do site):
   python tools/build_site.py            # escreve as paginas
-  python tools/build_site.py --check    # so confere que o que esta no disco
-                                        # e o que o molde geraria (para CI)
+  python tools/build_site.py --check    # so confere
 """
 
 from __future__ import annotations
