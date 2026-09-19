@@ -2,6 +2,16 @@
   "beta": [],
   "dev": [
     {
+      "version": "0.7.12",
+      "build": "56034d3",
+      "url": "https://srv1898920.hstgr.cloud:8443/apk/AdventureSmash-0.7.12-dev-56034d3-20260919-1724.apk",
+      "file": "AdventureSmash-0.7.12-dev-56034d3-20260919-1724.apk",
+      "size_mb": 84.4,
+      "sha256": "54ed60b9c03ddd7b7af9b02806b404f17b0d52e12e6a762783a4194f7301a3dc",
+      "built_at": "2026-09-19T17:24:55Z",
+      "dev": "Juliano"
+    },
+    {
       "version": "0.7.11",
       "build": "1bfe5c5",
       "url": "https://srv1898920.hstgr.cloud:8443/apk/AdventureSmash-0.7.11-dev-1bfe5c5-20260909-1323.apk",
@@ -39,16 +49,6 @@
       "size_mb": 71.8,
       "sha256": "d49f11a833726fd0c12b436c459192d43172fa98d30d070fdf2daf41bf55031f",
       "built_at": "2026-09-06T17:27:07Z",
-      "dev": "Juliano"
-    },
-    {
-      "version": "0.7.8",
-      "build": "0a9bf7d",
-      "url": "https://srv1898920.hstgr.cloud:8443/apk/AdventureSmash-0.7.8-dev-0a9bf7d-20260905-0957.apk",
-      "file": "AdventureSmash-0.7.8-dev-0a9bf7d-20260905-0957.apk",
-      "size_mb": 64.6,
-      "sha256": "0c3d59f0dc7876686a2e221bf5d0c2c10f6f46eff0a7bcf49d3d7e869f1e6ad3",
-      "built_at": "2026-09-05T09:57:35Z",
       "dev": "Juliano"
     }
   ]
