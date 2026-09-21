@@ -51,7 +51,7 @@ senha, desde 2026-09-06 (decisão do dono, `server/docs/SECURITY.md` D18). `APK_
 ## Regras
 
 - A data no topo de `privacidade.html` é a mesma do `Consent.VERSION`
-  (`src/app/consent.gd` do jogo, hoje "2026-08-27"): mudou a política, muda nos dois
+  (`src/app/consent.gd` do jogo, hoje "2026-09-19"): mudou a política, muda nos dois
   lugares e o app pede o aceite de novo.
 - Sem rastreadores, analytics ou fonte externa.
 - O português prevalece nos textos legais; inglês e espanhol levam a linha de cortesia.
